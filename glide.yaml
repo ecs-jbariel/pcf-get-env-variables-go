@@ -1,0 +1,3 @@
+package: github.com/ecs-jbariel/pcf-get-env-variables-go
+import:
+- package: github.com/cloudfoundry-community/go-cfclient

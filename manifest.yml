@@ -1,0 +1,13 @@
+---
+domain: <app domain>
+applications:
+- name: pcf-get-env-variables
+  memory: 128M
+  disk_quota: 56M
+  buildpack: https://github.com/cloudfoundry/go-buildpack.git
+  instances: 2
+  env:
+    SKIP_SSL_VALIDATION: <true|false>
+    API_ADDRESS: https://api.<systemDomain>
+    API_USERNAME: admin
+    API_PASSWORD: <adminPassword>
