@@ -4,7 +4,7 @@ Simple GO app that will display the environment variables for a given applicatio
 ## Required Environment Variables for a PCF Deploy
 If you are deploying this into PCF, you must provide the following environment variables.
 
-* `application_name` => Default PCF config value, used by the application so that any request for the environment variables of a know admin tool (with admin credentials) doesn't return any values
+* `APP_NAME` => Name of this app, so it will not show the environment variables (especially as there are admin credentials)
 * `SKIP_SSL_VALIDATION` => Set to `true` when using self-signed certs
 * `API_ADDRESS` => Set to the API endpoint - typically `https://api.<systemDomain>`
 * `API_USERNAME` => Set to an API admin, typically `admin`

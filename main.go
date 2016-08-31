@@ -97,7 +97,7 @@ func getApp(name string) (tmpApp cfclient.App, tmpErr error) {
  * @return <none>
  */
 func main() {
-	myAppName = os.Getenv("application_name")
+	myAppName = os.Getenv("APP_NAME")
 	appPort := os.Getenv("PORT")
 	skipSsl, boolErr := strconv.ParseBool(os.Getenv("SKIP_SSL_VALIDATION"))
 	if nil != boolErr {
