@@ -1,4 +1,4 @@
-package pcfEnvVariables
+package main
 
 import (
 	"fmt"
