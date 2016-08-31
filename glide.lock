@@ -1,5 +1,5 @@
-hash: 7a97175768e8cea890e771a82420ed7fbcf3e90370253c74d35d85986ae543ba
-updated: 2016-08-30T18:23:25.2985401-06:00
+hash: 172ba1b6077934e82bda22c0b8b24eb236955571acdde5f83caf63afb61c0b70
+updated: 2016-08-30T18:52:03.5303945-06:00
 imports:
 - name: github.com/cloudfoundry-community/go-cfclient
   version: bcb3541a95421743c3f02774399e3bfc9b1fb536
