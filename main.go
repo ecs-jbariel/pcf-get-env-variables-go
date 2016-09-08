@@ -32,10 +32,7 @@ var myAppName string
 func handler(resp http.ResponseWriter, req *http.Request) {
 	appName := req.URL.Path[1:]
 	fmt.Fprintf(resp, "Looking for app: %q ...\n\n", appName)
-	app, err := getApp(appName)
-	if nil != err {
-		fmt.Fprintf(resp, "Error: %q \n\n", err)
-	} else {
+	if app, err := getApp(appName); nil == err {
 		fmt.Fprintf(resp, "Found the below environment variables for %q \n\n", app.Name)
 		for k, v := range app.Environment {
 			fmt.Fprintf(resp, "  %q  :  %q\n", k, v)
@@ -43,6 +40,8 @@ func handler(resp http.ResponseWriter, req *http.Request) {
 
 		fmt.Fprintf(resp, "\nAdditional environment variables:\n\n")
 		getAllEnv(app.Guid, resp)
+	} else {
+		fmt.Fprintf(resp, "Error: %q \n\n", err)
 	}
 }
 
@@ -58,8 +57,7 @@ func handler(resp http.ResponseWriter, req *http.Request) {
  */
 func getAllEnv(guid string, parentResp http.ResponseWriter) {
 	r := myClient.NewRequest("GET", "/v2/apps/"+guid+"/env")
-	resp, reqErr := myClient.DoRequest(r)
-	if nil == reqErr {
+	if resp, reqErr := myClient.DoRequest(r); nil == reqErr {
 		resBody, readErr := ioutil.ReadAll(resp.Body)
 		if nil == readErr {
 			fmt.Fprintf(parentResp, "\n\n%s\n", string(resBody[:]))
